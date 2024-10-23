@@ -46,7 +46,7 @@ export default function RandomMeal() {
     <span className="info-detail">{meal.strInstructions}</span>
     <div className="conten-matiealv">
       <div className="list-ingrediente">
-      <ol>
+      <ul>
           {
             meal.ingredientInfo && meal.ingredientInfo.map((ingredient, index) => {
               return (
@@ -56,7 +56,7 @@ export default function RandomMeal() {
               );
             })
           }
-        </ol>
+        </ul>
       </div>
       {meal.strYoutube ? (
         <iframe

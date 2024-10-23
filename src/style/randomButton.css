@@ -1,16 +1,25 @@
-.random-button{
-    position: absolute;
-    left: 1640px;
-    bottom: 5px;
-    width: 12%;
-    height: 35px;
-    border-radius: 5px;
-    border: none;
-    margin-left:2%;
+.random-button {
+    position: absolute; 
+    right: 5%; 
+    bottom: 5px; 
+    width: 12%; 
+    height: 35px; 
+    border-radius: 5px; 
+    border: none; 
     background-color: #ffff;
 }
 
-.random-button:hover{
-    background-color: black;
-    color: #ffff;
+.random-button:hover {
+    background-color: black; 
+    color: #ffff; 
+}
+
+@media (max-width: 1000px) {
+    .random-button {
+        right: 5%; 
+        bottom: 5px; 
+        width: 80%; 
+        height: 40px; 
+        margin: 0; 
+    }
 }

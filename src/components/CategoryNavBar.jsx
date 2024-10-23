@@ -15,7 +15,7 @@ class CategoryNavBar extends React.Component {
       <nav className="menuCategory">
         {categories.map((category) => (
           <Link key={category.idCategory} to={`/${category.strCategory}`} className='category-link'>
-            {`${category.strCategory} |`}
+            {`${category.strCategory}`}
           </Link>
         ))}
       </nav>
