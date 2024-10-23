@@ -1,0 +1,15 @@
+.prepare-button{
+    position: relative;
+    width: 120px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    margin-left:2%;
+    background-color: black;
+    color: #fff;
+    top: 90px;
+}
+
+.prepare-button:hover{
+    background-color: #104d6c;
+}

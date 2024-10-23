@@ -1,0 +1,17 @@
+.menuCategory{
+    margin: 15px;
+    width: 70%;
+    height: 40px;
+    align-content: center;
+}
+
+.category-link{
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+}
+
+.category-link:hover{
+    color: #104d6c;
+}

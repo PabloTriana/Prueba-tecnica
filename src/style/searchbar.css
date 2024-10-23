@@ -1,0 +1,17 @@
+.content-searchbar{
+    margin-top: 1.5rem;
+    width: 56%;
+    height: 3.2rem;
+    align-content: center;
+}
+
+.input-searchbar{
+    width: 80%;
+    height: 1.8rem;
+    border-radius: 4px;
+    border: none;
+    background-color: #fff;
+    box-shadow: 5px 5px 7.5px 0px rgba(0, 0, 0, 0.3);
+    font-size: 18px;
+    padding-left: 0.5rem;
+}
