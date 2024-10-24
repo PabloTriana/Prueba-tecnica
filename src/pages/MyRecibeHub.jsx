@@ -1,8 +1,7 @@
 import React,{useState,useEffect} from 'react'
-import SearchBar from '../components/SearchBar';
 import RandomButton from '../components/RandomButton'
-import CategoryNavBar from '../components/CategoryNavBar';
 import MealList from '../components/MealList';
+import NavBar from '../components/NavBar';
 
 export default function MyRecibeHub() {
   const [categories, setCategories] = useState([]);
@@ -26,6 +25,7 @@ export default function MyRecibeHub() {
 
   return (
     <div>
+        <NavBar/>
         <MealList categories={categories}/>
         <RandomButton
           text = 'I do not know how to prepare'

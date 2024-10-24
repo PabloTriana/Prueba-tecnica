@@ -5,9 +5,12 @@ import CategoryNavBar from "../components/CategoryNavBar";
 import SearchBar from "../components/SearchBar";
 import RandomButton from "../components/RandomButton";
 import "../style/ContentMeal.css";
+import DetailMeal from "../components/DetailMeal";
+import NavBar from "../components/NavBar";
 
 export default function CategoryBeef() {
   const [mealBeef, setMealBeef] = useState([]);
+  const [description, setDescription] = useState([]);
   const { categories } = useContext(CategoryContext);
   const [search, setSearch] = useState("");
 
@@ -38,6 +41,7 @@ export default function CategoryBeef() {
 
   return (
     <div className="content-meal">
+      <NavBar/>
       <SearchBar onSearch={(value) => setSearch(value)} />
       <CategoryNavBar categories={categories} />
       <div className="scroll-cards">
@@ -50,6 +54,9 @@ export default function CategoryBeef() {
             />
             <div className="content-name">
               <span className="name-meal">{meal.strMeal}</span>
+              <DetailMeal
+                idMeal={meal.idMeal}
+              />
             </div>
             <div className="content-buttonp">
               <PrepareButton text="Prepare" idMeal={meal.idMeal} />

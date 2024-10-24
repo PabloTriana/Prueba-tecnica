@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import PrepareButton from "./PrepareButton";
 import SearchBar from "./SearchBar";
 import CategoryNavBar from "./CategoryNavBar";
+import DetailMeal from "./DetailMeal";
 import "../style/ContentMeal.css"
 
 export default function MealList({ categories }) {
@@ -20,8 +21,6 @@ export default function MealList({ categories }) {
           strMealThumb: meal.strMealThumb,
           strInstructions: meal.strInstructions,
         }));
-        console.log(data);
-        //setMeals(meals);
         setMeals((prevMeals) => [...prevMeals, ...meals]);
       });
     });
@@ -47,10 +46,13 @@ export default function MealList({ categories }) {
               alt={meal.strMeal}
               className="meal-img"
             />
-            <div>
+            <div className="content-name">
               <span className="name-meal">{meal.strMeal}</span>
+              <DetailMeal
+                idMeal={meal.idMeal}
+              />
             </div>
-
+  
             <PrepareButton 
               text="Prepare" 
               idMeal = {meal.idMeal}

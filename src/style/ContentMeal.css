@@ -29,39 +29,42 @@
     display: flex;
     align-items: center;
     padding: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     background-color: #fff;
-    height: 210px;
-    width: 800px;
+    height: 200px;
+    width: 700px;
     border-radius: 12px;
     box-shadow: 0px 2px 4px 0px #00000033;
 }
 
 .content-name{
     background-color: transparent;
-    width: 50%;
-    position: relative;
-    bottom: 90px;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
 
 }
 
 .meal-img{
-    width: 300px;
-    height: 230px;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
+    border-radius: 7.5px;
 }
 
 .name-meal{
-    position: relative;
+    margin-top: -90px;
     font-weight: 800;
     font-size: 20px;
-    text-align: justify;
     background-color: transparent;
+    text-align: left;
+    padding-left: 20px;
 }
 
 .content-buttonp{
-    a{
-        background-color: transparent;
-    }
+    background-color: transparent;
+}
+
+a{
     background-color: transparent;
 }

@@ -4,6 +4,8 @@ import PrepareButton from "../components/PrepareButton";
 import CategoryNavBar from "../components/CategoryNavBar";
 import SearchBar from "../components/SearchBar";
 import RandomButton from "../components/RandomButton"
+import DetailMeal from "../components/DetailMeal";
+import NavBar from "../components/NavBar";
 import "../style/ContentMeal.css"
 
 export default function CategoryDessert() {
@@ -35,6 +37,7 @@ export default function CategoryDessert() {
 
   return (
     <div className="content-meal">
+    <NavBar/>
     <SearchBar onSearch={(value) => setSearch(value)} />
     <CategoryNavBar categories={categories} />
     <div className="scroll-cards">
@@ -47,6 +50,9 @@ export default function CategoryDessert() {
           />
           <div className="content-name">
             <span className="name-meal">{meal.strMeal}</span>
+            <DetailMeal
+              idMeal={meal.idMeal}
+            />
           </div>
           <div className="content-buttonp">
             <PrepareButton text="Prepare" idMeal={meal.idMeal} />

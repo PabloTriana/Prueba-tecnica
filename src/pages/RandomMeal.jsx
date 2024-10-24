@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import NavBar from "../components/NavBar";
 import "../style/mealInfo.css";
 
 export default function RandomMeal() {
@@ -15,18 +16,17 @@ export default function RandomMeal() {
         for (let index = 1; index <= 20; index++) {
           const ingredient = mealInfo[`strIngredient${index}`];
           const measure = mealInfo[`strMeasure${index}`];
-          if (ingredient && measure)
-          {
+          if (ingredient && measure) {
             ingredientInfo.push(`${ingredient} ${measure}`);
           }
         }
 
         setMeal({
-            strMeal: mealInfo.strMeal,
-            strMealThumb: mealInfo.strMealThumb,
-            strInstructions: mealInfo.strInstructions,
-            strYoutube: embedUrl,
-            ingredientInfo: ingredientInfo,
+          strMeal: mealInfo.strMeal,
+          strMealThumb: mealInfo.strMealThumb,
+          strInstructions: mealInfo.strInstructions,
+          strYoutube: embedUrl,
+          ingredientInfo: ingredientInfo,
         });
       });
   };
@@ -37,41 +37,44 @@ export default function RandomMeal() {
 
   return (
     <div className="container-info">
-    <img
-      src={meal.strMealThumb}
-      alt={meal.strMealThumb}
-      className="info-img"
-    />
-    <span className="info-titulo">{meal.strMeal}</span>
-    <span className="info-detail">{meal.strInstructions}</span>
-    <div className="conten-matiealv">
-      <div className="list-ingrediente">
-      <ul>
-          {
-            meal.ingredientInfo && meal.ingredientInfo.map((ingredient, index) => {
-              return (
-                <li key={index} className="element-ingredient" >
-                  {ingredient}
-                </li>
-              );
-            })
-          }
-        </ul>
+      <NavBar />
+      <span className="info-titulo">{meal.strMeal}</span>
+      <img
+        src={meal.strMealThumb}
+        alt={meal.strMealThumb}
+        className="info-img"
+      />
+      <span className="info-detail">{meal.strInstructions}</span>
+      <div className="conten-matiealv">
+        <div className="list-ingrediente">
+          <strong className="text-ingredient">Ingredients:</strong>
+          <ul className="ul-ingredient">
+            {meal.ingredientInfo &&
+              meal.ingredientInfo.map((ingredient, index) => {
+                return (
+                  <li key={index} className="element-ingredient">
+                    {ingredient}
+                  </li>
+                );
+              })}
+          </ul>
+        </div>
+        <div className="content-frame">
+          {meal.strYoutube ? (
+            <iframe
+              width="560"
+              height="315"
+              src={meal.strYoutube}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              loading="lazy"
+              className="frame-video"
+            ></iframe>
+          ) : (
+            <br />
+          )}
+        </div>
       </div>
-      {meal.strYoutube ? (
-        <iframe
-          width="560"
-          height="315"
-          src={meal.strYoutube}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-          loading="lazy"
-          className="frame-video"
-        ></iframe>
-      ) : (
-        <br />
-      )}
     </div>
-  </div>
   );
 }
