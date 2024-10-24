@@ -9,8 +9,9 @@ export default function MealList({ categories }) {
   const [meals, setMeals] = useState([]);
   const [search, setSearch] = useState("");
 
+  //Funcion para obtener todos los platillos
   const GetMeals = async () => {
-    categories.map((category) => {
+    categories.map((category) => { //Del context se obtiene el valor de todas las categorias
       const ulr = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category.strCategory}`;
       fetch(ulr)
       .then((response) => response.json())
@@ -21,17 +22,23 @@ export default function MealList({ categories }) {
           strMealThumb: meal.strMealThumb,
           strInstructions: meal.strInstructions,
         }));
+        /*
+        Actualizar los valores del estados
+        Obteniendo los una copia de los elementos previos y agregando los elementos nuevos 
+        */
         setMeals((prevMeals) => [...prevMeals, ...meals]);
       });
     });
   };
 
+  //Funcion para filtrar las listas de comida
   const filteredMeals = meals.filter((meal) =>
     meal.strMeal.toLowerCase().includes(search.toLowerCase())
   );
 
   useEffect(() => {
-    if(categories) GetMeals();
+    //Validar si hay categorias
+    if(categories) GetMeals(); 
   }, [categories]);
 
   return (

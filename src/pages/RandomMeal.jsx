@@ -5,22 +5,27 @@ import "../style/mealInfo.css";
 export default function RandomMeal() {
   const [meal, setMeal] = useState([]);
   const url = `https://www.themealdb.com/api/json/v1/1/random.php`;
+  //Funcion para obtener un platillo aleatorio
   const showData = async () => {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
         const mealInfo = data.meals[0];
+        //Se le cambia el formato del link de youtube para poder verlo en la misma pagina
         const embedUrl = mealInfo.strYoutube.replace("watch?v=", "embed/");
+        //Constante para almacenar los valores de ingredientes y porcion
         const ingredientInfo = [];
-
+        // se utilizo un arreglo para poder crear la relacion del ingrediente con su respectiva porcion
         for (let index = 1; index <= 20; index++) {
           const ingredient = mealInfo[`strIngredient${index}`];
           const measure = mealInfo[`strMeasure${index}`];
+          //Se compara que exista el ingrediente y la porcion para no agregar valores nulos
           if (ingredient && measure) {
+            //Agregar al arreglo
             ingredientInfo.push(`${ingredient} ${measure}`);
           }
         }
-
+        //Actualiza los valores del estado
         setMeal({
           strMeal: mealInfo.strMeal,
           strMealThumb: mealInfo.strMealThumb,

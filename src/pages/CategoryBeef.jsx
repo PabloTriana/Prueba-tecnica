@@ -15,6 +15,7 @@ export default function CategoryBeef() {
   const [search, setSearch] = useState("");
 
   const url = "https://www.themealdb.com/api/json/v1/1/filter.php?c=Beef";
+  //Funcion para obtener todos los platillos de beef
   const showData = async () => {
     fetch(url)
       .then((response) => response.json())
@@ -27,10 +28,15 @@ export default function CategoryBeef() {
           strstrArea: meal.strArea,
           strInstructions: meal.strInstructions
         }));
+        /*
+          Actualizar los valores del estados
+          Obteniendo los una copia de los elementos previos y agregando los elementos nuevos 
+        */
         setMealBeef((prevMeals) => [...prevMeals, ...meals]);
       });
   };
 
+  //Funcion para filtrar las listas de comida
   const filteredMeals = mealBeef.filter((meal) =>
     meal.strMeal.toLowerCase().includes(search.toLowerCase())
   );

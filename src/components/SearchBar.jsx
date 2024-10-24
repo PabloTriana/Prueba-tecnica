@@ -10,10 +10,12 @@ class SearchBar extends React.Component {
     };
   }
 
+  //Funcion para actualizar el estado y almacenar el valor recibido
   handleChange = (e) =>{
     this.setState({value: e.target.value})
   }
 
+  //Funcion para enviar el resultado
   handleSubmit = (e) => {
     e.preventDefault(); 
     this.props.onSearch(this.state.value);

@@ -14,6 +14,7 @@ export default function CategoryStarter() {
   const [search, setSearch] = useState("");
 
   const url = "https://www.themealdb.com/api/json/v1/1/filter.php?c=Starter";
+  //Funcion para obtener todos los platillos de starter
   const showData = async () => {
     fetch(url)
       .then((response) => response.json())
@@ -23,10 +24,15 @@ export default function CategoryStarter() {
           strMeal: meal.strMeal,
           strMealThumb: meal.strMealThumb,
         }));
+        /*
+          Actualizar los valores del estados
+          Obteniendo los una copia de los elementos previos y agregando los elementos nuevos 
+        */
         setMealStarter((prevMeals) => [...prevMeals, ...meals]);
       });
   };
 
+  //Funcion para filtrar las listas de comida
   const filteredMeals = mealStarter.filter((meal) =>
     meal.strMeal.toLowerCase().includes(search.toLowerCase())
   );

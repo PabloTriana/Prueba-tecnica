@@ -4,7 +4,8 @@ export const CategoryContext = createContext();
 
 export const CategoryProvider = ({ children }) => {
   const [categories, setCategories] = useState([]);
-
+  
+  //Funcion para obtener las categorias a travez de la api
   const fetchCategories = async () => {
     const url = 'https://www.themealdb.com/api/json/v1/1/categories.php';
     const response = await fetch(url);
@@ -13,7 +14,8 @@ export const CategoryProvider = ({ children }) => {
       idCategory: category.idCategory,
       strCategory: category.strCategory
     }));
-    setCategories(fetchedCategories);
+    //Actualizar estado para almacenar el arreglo de categorias obtenidas
+    setCategories(fetchedCategories);  
   };
 
   useEffect(() => {

@@ -17,7 +17,7 @@ class DetailMeal extends React.Component {
       meal: [],
     };
   }
-
+  //Funcion para obtener los detalles de cada pltillo
   getDetail = async () => {
     const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${this.props.idMeal}`;
     fetch(url)
@@ -33,7 +33,7 @@ class DetailMeal extends React.Component {
         }
       });
   };
-
+  //Se ejecuta al crear el componente
   componentDidMount() {
     this.getDetail();
   }

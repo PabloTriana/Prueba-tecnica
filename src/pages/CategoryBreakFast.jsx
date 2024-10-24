@@ -14,6 +14,7 @@ export default function CategoryBreakFast() {
   const [search, setSearch] = useState("");
 
   const url = "https://www.themealdb.com/api/json/v1/1/filter.php?c=BreakFast";
+  //Funcion para obtener todos los platillos de breakfast
   const showData = async () => {
     fetch(url)
       .then((response) => response.json())
@@ -23,10 +24,15 @@ export default function CategoryBreakFast() {
           strMeal: meal.strMeal,
           strMealThumb: meal.strMealThumb,
         }));
+        /*
+          Actualizar los valores del estados
+          Obteniendo los una copia de los elementos previos y agregando los elementos nuevos 
+        */
         setMealBreakFast((prevMeals) => [...prevMeals, ...meals]);
       });
   };
 
+  //Funcion para filtrar las listas de comida
   const filteredMeals = mealBreakFast.filter((meal) =>
     meal.strMeal.toLowerCase().includes(search.toLowerCase())
   );

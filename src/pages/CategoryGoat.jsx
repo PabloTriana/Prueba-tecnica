@@ -15,6 +15,7 @@ export default function CategoryGoat() {
   const [search, setSearch] = useState("");
 
   const url = "https://www.themealdb.com/api/json/v1/1/filter.php?c=Goat";
+  //Funcion para obtener todos los platillos de Goat
   const showData = async () => {
     fetch(url)
       .then((response) => response.json())
@@ -24,10 +25,15 @@ export default function CategoryGoat() {
           strMeal: meal.strMeal,
           strMealThumb: meal.strMealThumb,
         }));
+        /*
+          Actualizar los valores del estados
+          Obteniendo los una copia de los elementos previos y agregando los elementos nuevos 
+        */
         setMealGoat((prevMeals) => [...prevMeals, ...meals]);
       });
   };
 
+  //Funcion para filtrar las listas de comida
   const filteredMeals = mealGoat.filter((meal) =>
     meal.strMeal.toLowerCase().includes(search.toLowerCase())
   );
